@@ -1,0 +1,110 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+body {
+  background-color: royalblue;
+}
+
+h1 {
+  display: block;
+  color: white;
+  text-align: center;
+  margin-top: 30px;
+  text-decoration: underline;
+}
+
+.instructparent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#instructions {
+  text-align: center;
+  font-size: 22px;
+  border: 2px white solid;
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 10px;
+  padding: 10px;
+}
+
+i{
+  color: white;
+  font-size: 25px;
+}
+
+span {
+    font-size: 12px;
+    display: block;
+    text-align: center;
+    color: white;
+  }
+
+#gridparent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+  
+#grid {
+  display: grid;
+  grid-template-rows: (4, 1fr);
+  grid-template-columns: (4, 1fr);
+  grid-template-areas: 
+  "one two three four"
+  "five six seven eight"
+  "nine ten eleven twelve"
+  "thirteen fourteen fifteen sixteen";
+  margin-top: 30px;
+  // text-align: center;
+  min-height: 400px;
+  min-width: 400px;
+
+}
+.cell {
+  background-color: red;
+  border:1px solid blue;
+ 
+}
+
+.virus .clicked {
+  font-family: 'FontAwesome';
+  content: "\f974";
+  margin: auto 0;
+
+.facemask .clicked {
+  font-family: 'FontAwesome';
+  content: "\f963";
+}
+
+.antibac .clicked {
+  font-family: 'FontAwesome';
+  content: "\f96b";
+  // content: "\f96a";
+}
+
+.looroll .clicked{
+  font-family: 'FontAwesome';
+  content: "\f71e";
+}
+
+.cell .blank .clicked {
+  background-color: salmon;
+}
+
+.newGameParent {
+  display: flex;
+  justify-content: center;
+}
+.newgame {
+  margin: 15px;
+}
+
+#score {
+  text-align: center;
+}}

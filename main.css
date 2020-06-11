@@ -32,7 +32,8 @@ h1 {
 
 #instructions {
   text-align: center;
-  font-size: 22px;
+  font-size: 14px;
+  font-weight: bold;
   border: 2px white solid;
   width: 80%;
   margin: 0 auto;
@@ -67,47 +68,43 @@ span {
 #grid {
   display: -ms-grid;
   display: grid;
-  -ms-grid-rows: 4, 1fr;
-      grid-template-rows: 4, 1fr;
-  -ms-grid-columns: 4, 1fr;
-      grid-template-columns: 4, 1fr;
-      grid-template-areas: "one two three four" "five six seven eight" "nine ten eleven twelve" "thirteen fourteen fifteen sixteen";
-  margin-top: 30px;
-  min-height: 400px;
-  min-width: 400px;
+  -ms-grid-rows: (1fr)[4];
+      grid-template-rows: repeat(4, 1fr);
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
+  margin-top: 10px;
+  min-height: 280px;
+  min-width: 280px;
 }
 
 .cell {
   background-color: red;
   border: 1px solid blue;
+  text-align: center;
+  padding-top: 25px;
 }
 
-.virus .clicked {
-  font-family: 'FontAwesome';
-  content: "\f974";
-  margin: auto 0;
+.virus.clicked {
+  background-color: black;
 }
 
-.virus .clicked .facemask .clicked {
-  font-family: 'FontAwesome';
-  content: "\f963";
+.facemask.clicked {
+  background-color: indigo;
 }
 
-.virus .clicked .antibac .clicked {
-  font-family: 'FontAwesome';
-  content: "\f96b";
+.antibac.clicked {
+  background-color: orange;
 }
 
-.virus .clicked .looroll .clicked {
-  font-family: 'FontAwesome';
-  content: "\f71e";
+.looroll.clicked {
+  background-color: green;
 }
 
-.virus .clicked .cell .blank .clicked {
-  background-color: salmon;
+.blank.clicked {
+  background-color: hotpink;
 }
 
-.virus .clicked .newGameParent {
+.newGameParent {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -116,11 +113,40 @@ span {
           justify-content: center;
 }
 
-.virus .clicked .newgame {
-  margin: 15px;
+.newgame {
+  background-color: white;
+  color: blue;
+  font-size: 20px;
 }
 
-.virus .clicked #score {
+#score {
   text-align: center;
+  border: 3px red solid;
+  background-color: white;
+  color: blue;
+  width: 120px;
+  height: 60px;
+  font-size: 40px;
+  display: inline-block;
+  margin-left: 15px;
+  margin-bottom: 15px;
+}
+
+#progressUpdate {
+  border: 3px red solid;
+  background-color: white;
+  color: blue;
+  width: 220px;
+  height: 120px;
+  font-size: 18px;
+  float: right;
+  margin-bottom: 15px;
+  margin-right: 15px;
+  text-align: center;
+}
+
+i {
+  display: block;
+  margin: auto;
 }
 /*# sourceMappingURL=main.css.map */

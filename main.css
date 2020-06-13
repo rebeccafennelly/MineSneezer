@@ -134,10 +134,10 @@ span {
 
 #progressUpdate {
   border: 3px red solid;
-  background-color: white;
-  color: blue;
+  background-color: red;
+  color: white;
   width: 220px;
-  height: 120px;
+  height: 100px;
   font-size: 18px;
   float: right;
   margin-bottom: 15px;

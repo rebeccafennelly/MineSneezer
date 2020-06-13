@@ -2,6 +2,7 @@ let occupiedCells = [];
 let score = 0
 const getInsideProgressUpdate = document.getElementById("progressUpdate");
 getInsideProgressUpdate.innerHTML = "";
+const cellArray = document.getElementsByClassName("cell");
 
 const antibac = `<i class="fas fa-pump-soap" id="antibac"></i>`;
 const looroll = `<i class="fas fa-toilet-paper" id="looroll"></i>`;
@@ -18,17 +19,16 @@ const getRandomNumber = () => {
   return getRandomNumber();
 
 }
-  // Write a function that using the RandomNumber function above, puts 4 virus on the grid in random cells each time and gives that cell as class of virus.
+  
   const createVirusAtRandom = () => { 
   let randomNumber = getRandomNumber();
   occupiedCells.push(randomNumber);
-  const cellArray = document.getElementsByClassName("cell");
+  // const cellArray = document.getElementsByClassName("cell");
   console.log(cellArray);
   let cell = cellArray[randomNumber];
   cell.classList.add("virus");
 }
 
-// Then repeat the function for 3 facemasks
 const createMaskAtRandom = () => {
   let randomNumber = getRandomNumber();
   occupiedCells.push(randomNumber);
@@ -36,7 +36,7 @@ const createMaskAtRandom = () => {
   let cell = cellArray[randomNumber];
   cell.classList.add("facemask");
 }
-// Then repeat the function for 3 antibacs
+
 const createAntibacAtRandom = () => {
   let randomNumber = getRandomNumber();
   occupiedCells.push(randomNumber);
@@ -44,7 +44,7 @@ const createAntibacAtRandom = () => {
   const cell = cellArray[randomNumber];
   cell.classList.add("antibac");
 }
-// // Then repeat the function for 2 loo rolls
+
 const createLooRollAtRandom = () => {
   let randomNumber = getRandomNumber();
   occupiedCells.push(randomNumber);
@@ -69,6 +69,8 @@ const clickedClassFunction = (event) => {
 
 
   event.target.classList.add("clicked");
+  // event.target.removeEventListener("click");
+
 
   if (event.target.classList.contains("facemask")){ 
     event.target.innerHTML = facemask;
@@ -91,6 +93,8 @@ const clickedClassFunction = (event) => {
   }
 
   if (event.target.classList.contains ("virus")){
+    // END GAME
+    // resetGrid();
     event.target.innerHTML = (virus);
     (score = 0);
     getInsideProgressUpdate.innerHTML = ("Achoo!!! Game Over, you caught the virus! Please leave quietly…do not go to your GP. Thank you.");
@@ -98,12 +102,9 @@ const clickedClassFunction = (event) => {
   }
   if (event.target.classList.contains ("blank")){ 
     event.target.innerHTML = blank;
-    getInsideProgressUpdate.innerHTML = ("Thanks for the blanks!");
+    getInsideProgressUpdate.innerHTML = ("Blank! Sitting duck...");
   }
-
 }
-  // ADD EVENT LISTENER TO ALL CELLS
-
 
 
   const addEventListeners = () => {
@@ -112,18 +113,14 @@ const clickedClassFunction = (event) => {
     };
     addEventListeners();
   
-// CLICK EVENT THAT INCREMENTS SCORE IF NEED BE, AND THEN GIVES THE CELL A CLASS OF CLICKED
-
-// const clickEvent = event => {
-
-
-
-  // const getInsideScore = document.getElementById("#score");
-  // getInsideScore.innerHTML = ""
 
   let resetGrid = () => {
     score = 0; 
     occupiedCells = [];
+  //   cellArray.forEach((cell) => {
+  // if (cell.classList.contains("clicked")){
+  //   cell.classList.remove("facemask", "antibac", "looroll", "virus", "blank", "clicked");
+  //   }})
     for (let index = 0; index < 3; index++) {
       console.log("viruscalled");
       createVirusAtRandom();
@@ -145,19 +142,20 @@ const clickedClassFunction = (event) => {
           createBlankAtRandom();
         }
     }
-    addEventListeners();
+  
 
+    // addEventListeners();
 
+ 
+    // if (cell.classList.contains("clicked")){
+    //   cell.removeEventListener("click");
+    //  }
 
 const newGame = document.querySelector(".newgame");
 newGame.addEventListener("click", resetGrid);
 
- 
-resetGrid();
+ resetGrid();
 
 
 
-// if score=0 {resetGrid()};
 
-
-// if virus.clicked = end game. 

@@ -149,4 +149,34 @@ i {
   display: block;
   margin: auto;
 }
+
+.endgamepopup {
+  display: none;
+}
+
+.endgamepopup.over {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: auto;
+  height: auto;
+  background-color: black;
+  border: red 12px solid;
+  padding: 20px;
+  position: absolute;
+  font-size: 28px;
+  color: white;
+  text-align: center;
+}
+
+.endgamepopup.over a {
+  text-decoration: underline;
+  color: royalblue;
+}
 /*# sourceMappingURL=main.css.map */

@@ -134,6 +134,31 @@ span {
 i {
   display: block;
   margin: auto;
-  
+}
 
+.endgamepopup {
+  display: none;
+}
+
+.endgamepopup.over {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  height: auto;
+  background-color:black;
+  border: red 12px solid;
+  padding: 20px;
+  position: absolute;
+  // left: 120px;
+  // bottom: 310px;
+  // z-index:2;
+  font-size: 28px;
+  color: white;
+  text-align: center;
+  // margin: 20px 0px;
+  a {
+    text-decoration: underline;
+    color: royalblue;
+  }
 }

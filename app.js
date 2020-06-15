@@ -20,57 +20,26 @@ const getRandomNumber = () => {
 
 }
   
-  const createVirusAtRandom = () => { 
+  const createAtRandom = (type) => { 
   let randomNumber = getRandomNumber();
   occupiedCells.push(randomNumber);
   // const cellArray = document.getElementsByClassName("cell");
   console.log(cellArray);
   let cell = cellArray[randomNumber];
-  cell.classList.add("virus");
-}
-
-const createMaskAtRandom = () => {
-  let randomNumber = getRandomNumber();
-  occupiedCells.push(randomNumber);
-  const cellArray = document.getElementsByClassName("cell");
-  let cell = cellArray[randomNumber];
-  cell.classList.add("facemask");
-}
-
-const createAntibacAtRandom = () => {
-  let randomNumber = getRandomNumber();
-  occupiedCells.push(randomNumber);
-  const cellArray = document.getElementsByClassName("cell");
-  const cell = cellArray[randomNumber];
-  cell.classList.add("antibac");
-}
-
-const createLooRollAtRandom = () => {
-  let randomNumber = getRandomNumber();
-  occupiedCells.push(randomNumber);
-  const cellArray = document.getElementsByClassName("cell");
-  const cell = cellArray[randomNumber];
-  cell.classList.add("looroll");
-}
-
-const createBlankAtRandom = () => {
-  let randomNumber = getRandomNumber();
-  occupiedCells.push(randomNumber);
-  const cellArray = document.getElementsByClassName("cell");
-  const cell = cellArray[randomNumber];
-  cell.classList.add("blank");
+  cell.classList.add(type);
 }
 
 
-
+endOfGame = () => {
+  const endGamePopUp = document.querySelector(".endgamepopup");
+  endGamePopUp.classList.add("over");
+  resetGrid();
+}    
 
 
 const clickedClassFunction = (event) => {
 
-
-  event.target.classList.add("clicked");
-  // event.target.removeEventListener("click");
-
+  event.target.classList.add("clicked");  
 
   if (event.target.classList.contains("facemask")){ 
     event.target.innerHTML = facemask;
@@ -93,17 +62,19 @@ const clickedClassFunction = (event) => {
   }
 
   if (event.target.classList.contains ("virus")){
-    // END GAME
-    // resetGrid();
     event.target.innerHTML = (virus);
     (score = 0);
-    getInsideProgressUpdate.innerHTML = ("Achoo!!! Game Over, you caught the virus! Please leave quietly…do not go to your GP. Thank you.");
-    document.getElementById("score").innerHTML = (score);
-  }
+   document.getElementById("score").innerHTML = (score);
+  //  cell.innerHTML = ""
+    endOfGame();
+
+}
+  
   if (event.target.classList.contains ("blank")){ 
     event.target.innerHTML = blank;
     getInsideProgressUpdate.innerHTML = ("Blank! Sitting duck...");
   }
+
 }
 
 
@@ -113,49 +84,67 @@ const clickedClassFunction = (event) => {
     };
     addEventListeners();
   
+    // addEventListeners();
 
-  let resetGrid = () => {
-    score = 0; 
-    occupiedCells = [];
-  //   cellArray.forEach((cell) => {
-  // if (cell.classList.contains("clicked")){
-  //   cell.classList.remove("facemask", "antibac", "looroll", "virus", "blank", "clicked");
-  //   }})
+
+
+  const resetGrid = () => {
+
+
+    // if (event.target.classList.contains("clicked")){
+    //   cell.removeEventListener("click");
+    //  }
+
+      [...cellArray].forEach((cell) => {
+      cell.classList.remove("facemask", "antibac", "looroll", "virus", "blank", "clicked");
+      })
+      score = 0; 
+      occupiedCells = [];
+
     for (let index = 0; index < 3; index++) {
-      console.log("viruscalled");
-      createVirusAtRandom();
+
+      createAtRandom("virus");
+      createAtRandom("facemask");
+      createAtRandom("antibac");
     }
-    for (let index = 0; index < 3; index++) {
-      console.log("maskcalled");
-      createMaskAtRandom();
-    }
-    for (let index = 0; index < 3; index++) {
-        console.log("antibaccalled");
-        createAntibacAtRandom();
-        }
     for (let index = 0; index < 2; index++) {
-          console.log("loorollcalled");
-          createLooRollAtRandom();
+        createAtRandom("looroll");
         }
     for (let index = 0; index < 5; index++) {
-          console.log("blank");
-          createBlankAtRandom();
+          createAtRandom("blank");
         }
     }
   
 
-    // addEventListeners();
 
- 
-    // if (cell.classList.contains("clicked")){
-    //   cell.removeEventListener("click");
-    //  }
 
 const newGame = document.querySelector(".newgame");
 newGame.addEventListener("click", resetGrid);
 
- resetGrid();
+
+resetGrid();
 
 
+
+ 
+
+
+
+//  CLICK A virus, POP UP SAYS YOURE DEAD, REMOVE CLASSES ON CELLS APART FROM CLASS OF CELL, THEN REDISTRUBUTE.
+// endOfGame = () => {
+//   const endGamePopUp = document.querySelector(".endofgamepopup");
+//  endGamePopUp.innerHTML = "Achoo!!! Game Over, you caught the virus! Please leave quietly…do not pass go, do not collect £200 and do not go to your GP...or <a>click here</a> to reset the grid."
+//   cellArray.forEach((cell) => {
+//       cell.classList.remove("facemask", "antibac", "looroll", "virus", "blank", "clicked");
+//       })
+//       score = 0; 
+//       occupiedCells = [];
+// }    
+
+
+
+const clickHere = document.querySelector(".clickhere");
+clickHere.addEventListener("click", resetGrid);
+endGamePopUp.classList.remove("over");
 
 

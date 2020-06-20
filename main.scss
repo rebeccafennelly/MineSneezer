@@ -15,6 +15,7 @@ h1 {
   text-align: center;
   margin-top: 30px;
   text-decoration: underline;
+  font-size: 5vw;
 }
 
 .instructparent {
@@ -24,7 +25,7 @@ h1 {
 }
 #instructions {
   text-align: center;
-  font-size: 14px;
+  font-size: 3vw;
   font-weight: bold;
   border: 2px white solid;
   width: 80%;
@@ -98,8 +99,12 @@ span {
 
 .newgame {
   background-color: white;
-  color: blue;
-  font-size: 20px;
+  color: royalblue;
+  font-size: 3vw;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  border: 4px red dashed;
+  font-weight: bolder;
 }
 
 
@@ -107,10 +112,10 @@ span {
   text-align: center;
   border: 3px red solid;
   background-color: white;
-  color: blue;
+  color:royalblue;
   width: 120px;
   height: 60px;
-  font-size: 40px;
+  font-size: 45px;
   display: inline-block;
   margin-left: 15px;
   margin-bottom: 15px;
@@ -118,7 +123,7 @@ span {
 }
 
 #progressUpdate {
-  border: 3px red solid;
+  border: 5px white solid;
   background-color:red;
   color: white;
   width: 220px;
@@ -144,21 +149,27 @@ i {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: auto;
-  height: auto;
+  width: 100vw;
+  height: 100vh;
   background-color:black;
-  border: red 12px solid;
+  border: red 40px solid;
   padding: 20px;
   position: absolute;
-  // left: 120px;
-  // bottom: 310px;
-  // z-index:2;
-  font-size: 28px;
-  color: white;
-  text-align: center;
-  // margin: 20px 0px;
-  a {
+  top: 0px;
+  div {
+    height: 85vh;
+    font-size: 28px;
+    color: white;
+    text-align: center;
+    i {
+      font-size: 160px;
+      margin-bottom: 40px;
+      margin-top: 40px;
+    }
+    a {
     text-decoration: underline;
     color: royalblue;
+    cursor: grab;
+    }
   }
 }
